@@ -1,6 +1,4 @@
-let app = new Vue({
+new Vue({
     el: '#app',
-    data: {
-        message: 'こんにちは〜'
-    }
+    data: 'https://www.pinterest.jp/'
 });
