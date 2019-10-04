@@ -15,7 +15,12 @@
 
 	<div id="app">
 
-		<p>{{localEmail}}</p>
+		<form>
+			<input type="button" value="クリック" v-on:click="onclick">
+		</form>
+		<div>算出プロパティ：{{ randomSanshutsu }}</div>
+		<div>メソッド：{{ randomMethod() }}</div>
+		<div>現在日時：{{ current }}</div>
 
 	</div>
 
