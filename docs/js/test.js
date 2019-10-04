@@ -6,6 +6,7 @@ new Vue({
 		computed: {
 			localEmail: function() {
 				return this.email.split('@')[0].toLowerCase();
+				console.log('いたずら');
 			}
 		}
 });
