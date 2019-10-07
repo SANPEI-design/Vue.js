@@ -1,21 +1,32 @@
-new Vue({
+let app = new Vue({
 	el: '#app',
-	data: {
-		current: new Date().toLocaleString()
+	beforeCreate: function() {
+		console.log('beforeCreate...');
 	},
-	computed: {
-		//算出プロパティで乱数取得
-		randomSanshutsu: function() {
-			return Math.random();
-		}
+	created: function() {
+		console.log('created...');
 	},
-	methods: {
-		//クリック時に処理
-		onclick: function() {
-			this.current = new Date().toLocaleString();
-		},
-		randomMethod: function() {
-			return Math.random();
-		}
+	beforeMount: function() {
+		console.log('beforeMount...');
 	},
+	mouted: function() {
+		console.log('mounted...');
+	},
+	beforeUpdate: function() {
+		console.log('beforeUpdate...');
+	},
+	updated: function() {
+		console.log('updated...');
+	},
+	beforeDestroy: function() {
+		console.log('beforeDestroy...');
+	},
+	destroyed: function() {
+		console.log('destroyed...');
+	}
 });
+
+//3000ミリ秒後に破棄
+setTimeout(function() {
+	app.$destroy();
+}, 3000);
