@@ -1,32 +1,19 @@
-let app = new Vue({
+new Vue({
 	el: '#app',
-	beforeCreate: function() {
-		console.log('beforeCreate...');
+	data: {
+		//現在日時
+		current: new Date()
 	},
+	//起動時にタイマーを設定
 	created: function() {
-		console.log('created...');
+		let that = this;
+		//1000ミリ秒スパンでcurrenrプロパティを更新
+		this.timer = setInterval(function() {
+			that.current = new Date();
+		}, 1000);
 	},
-	beforeMount: function() {
-		console.log('beforeMount...');
-	},
-	mouted: function() {
-		console.log('mounted...');
-	},
-	beforeUpdate: function() {
-		console.log('beforeUpdate...');
-	},
-	updated: function() {
-		console.log('updated...');
-	},
+	//終了まえにタイマーを破棄
 	beforeDestroy: function() {
-		console.log('beforeDestroy...');
-	},
-	destroyed: function() {
-		console.log('destroyed...');
+		clearInterval(this.timer);
 	}
 });
-
-//3000ミリ秒後に破棄
-setTimeout(function() {
-	app.$destroy();
-}, 3000);
