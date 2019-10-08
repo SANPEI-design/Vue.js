@@ -9,7 +9,7 @@ let app = new Vue({
 		let that = this;
 		//3000ミリ秒後にプロパティを追加
 		this.timer = setTimeout(function() {
-			//that.author.name = 'Y.YAMADA';
+			that.author.name = 'Y.YAMADA';
 			that.author.company = 'WINGSプロジェクト';
 		}, 3000);
 	},
