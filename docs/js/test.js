@@ -6,8 +6,11 @@ new Vue({
 		}
 	},
 	mounted: function() {
+		let that = this;
 		Vue.set(this.author, 'company', 'WINGSプロジェクト');
-		//#app配下にcompanyプロパティの内容が含まれているか
-		console.log(this.$el.textContent.includes(this.author.company));
+		this.$nextTick().then(function() {
+			//#app配下にcompanyプロパティの内容が含まれているか、ビューへの反映を待ってから確認
+			console.log(this.$el.textContent.includes(this.author.company));
+		})
 	}
 });
