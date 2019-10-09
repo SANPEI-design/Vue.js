@@ -1,16 +1,25 @@
 new Vue({
 	el: '#app',
 	data: {
-		author: {
-			name: '山田'
+		// 入力値
+		name: '',
+		// 表示する名前
+		upperName: ''
+	},
+	// 遅延処理用のdelayFuncメソッドを準備
+	created: function() {
+		this.delayFunc = _.debounce(this.getUpper, 2000);
+	},
+	// nameプロパティが変化した時にdelayFuncメソッドを呼び出し
+	watch: {
+		name: function(newValue, oldValue) {
+			this.delayFunc();
 		}
 	},
-	mounted: function() {
-		let that = this;
-		Vue.set(this.author, 'company', 'WINGSプロジェクト');
-		this.$nextTick().then(function() {
-			//#app配下にcompanyプロパティの内容が含まれているか、ビューへの反映を待ってから確認
-			console.log(that.$el.textContent.includes(that.author.company));
-		})
+	// nameの値を大文字に変換したものをupperNameプロパティに設定
+	methods: {
+		getUpper: function() {
+			this.upperName = this.name.toUpperCase();
+		}
 	}
 });
