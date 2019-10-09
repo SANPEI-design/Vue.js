@@ -15,12 +15,18 @@
 
 	<div id="app">
 
-		<p>著者情報：{{ author.name }} ({{ author.company }})</p>
+		<!-- 入力値をnameプロパティにバインド -->
+		<label>名前：
+			<input type="text" v-model="name">
+		</label>
+		<p>入力された値：{{ upperName }}</p>
 
 	</div>
 
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- lodashをインポート -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
 	<script src="js/test.js"></script>
 </body>
 </html>
